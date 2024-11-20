@@ -7,6 +7,9 @@ async function controlRecipe() {
   //  Getting recipe id
   const id = window.location.hash.slice(1);
 
+  // guard clause
+  if (!id) return;
+
   // Loading recipe
   await model.loadRecipe(id);
 

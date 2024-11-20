@@ -1,6 +1,7 @@
 class ResultsView {
   _parentEl = document.querySelector('.results');
   _data;
+  _errorMessage = 'No recipe found! Please try again with your favorite food';
 
   _generateMarkup() {
     return this._data

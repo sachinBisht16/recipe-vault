@@ -4,6 +4,8 @@ export const state = {
     query: '',
     results: [],
   },
+  page: 1,
+  recipePerPage: 10,
 };
 
 export async function loadRecipe(id) {
@@ -32,4 +34,12 @@ export async function searchRecipes(query) {
   // Storing recipes for the current query
   const { recipes } = data.data;
   state.search.results = recipes;
+}
+
+// funtion return selected recipe based on function
+export function selectedResults(page = 1) {
+  state.page = page;
+  const start = (page - 1) * 10;
+  const end = page * 10;
+  return state.search.results.slice(start, end);
 }
